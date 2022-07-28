@@ -12,7 +12,9 @@ intrlvrIndices = lteIntrlvrIndices(Kplus);
 CodingRate=prmLTE.Rate;
 Qm=2*prmLTE.Mode;
 NumLayers=1;
-G=ceil((Kplus+4)/CodingRate);
+%  这里原本只有C==1的情况，这明显是不适用于C>1的情况的,应该补一个C
+% 详见我的博客
+G=ceil((Kplus+4)*C/CodingRate);
 % E理应和Kplus一样，但实际上还要考虑码率匹配的问题
 E_CB=CbBitSelection(C, G, NumLayers, Qm);
 % Initialize output

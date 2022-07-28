@@ -13,7 +13,7 @@ CodingRate=prmLTE.Rate;
 Qm=2*prmLTE.Mode;
 NumLayers=1;
 % 算出总比特和分块后的每个块长度
-G=ceil((Kplus+4)/CodingRate);
+G=ceil((Kplus+4)*C/CodingRate);
 E_CB=CbBitSelection(C, G, NumLayers, Qm);
 % Channel decoding the TB
 % 不用分块时，直接码率匹配后解码即可

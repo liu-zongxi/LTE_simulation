@@ -12,6 +12,8 @@ gamma = mod(Gprime, C);
 E=zeros(C,1);
 % Rate matching with bit selection
 % 余数以下的小一点，大于的大一点
+% 详见博客，这样一定恰好分完
+% 比如分成24组，余数是13，那么前13多分一个，后面的少分一个，就刚好分完了
 for cbIdx=1:C
         if ((cbIdx-1) <= (C-1-gamma))
             E(cbIdx) = Nl*Qm*floor(Gprime/C);
