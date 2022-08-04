@@ -40,8 +40,9 @@ for i = 1:2 % slot wise
         iniStates = int2bit(c_init, 31);
         % iniStates = step(hInt2Bit, c_init);
         % Scrambling sequence - as per Section 7.2, 36.211
-        seq = step(hSeqGen, iniStates); 
+        seq = step(hSeqGen, iniStates);
         % Store the common first antenna port sequences
+        % 这其实是QPSK调制
         y(:, lIdx, i, 1) = (1/sqrt(2))*complex(1-2.*seq(1:2:end), 1-2.*seq(2:2:end));
     end
 end
@@ -58,7 +59,7 @@ if (numTx>2)
         c_init = (2^10)*(7*((nS+i-1)+1)+1+1)*(2*NcellID+1) + 2*NcellID + Ncp;
         % Convert to binary vector
         % iniStates = step(hInt2Bit, c_init);
-        iniStates = int2bit(c_init, 31)
+        iniStates = int2bit(c_init, 31);
         % Scrambling sequence - as per Section 7.2, 36.211
         seq = step(hSeqGen, iniStates); 
         % Store the third antenna port sequences

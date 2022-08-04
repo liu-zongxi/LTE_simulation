@@ -54,7 +54,6 @@ gamma = mod(Gprime, C);
 
 % Initialize output
 out = false(G, 1);
-
 % Channel coding the TB
 if (C==1) % single CB, no CB CRC used
     % Turbo encode

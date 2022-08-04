@@ -17,7 +17,6 @@ switch nS
     otherwise
        outLen = outLenVec(3); 
 end
-
 data = logical(randi( [0 1], outLen, 1));
 
 % [EOF]
